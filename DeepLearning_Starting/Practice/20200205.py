@@ -3,7 +3,7 @@
 import sys, os
 sys.path.append(os.pardir)
 
-from Practice.layer_naiver import *
+from Practice.layer_naiver import MulLayer
 
 apple = 100
 apple_num = 2
