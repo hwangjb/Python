@@ -13,7 +13,7 @@ plt.scatter(x_data, y_data, color='b', marker='o')
 plt.show()
 
 # %%
-#line plot
+# line plot
 
 x_data = [x for x in range(-5, 5)]
 y_data = [y*y for y in range(-5, 5)]
