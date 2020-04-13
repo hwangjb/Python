@@ -1,14 +1,13 @@
-a=1
-b=2
-c=10
-max=0
-if a>b and a>c:
-    max=a
-elif b>a and b>c:
-    max=b
+# %%
+a = 1
+b = 2
+c = 10
+max = 0
+if a > b and a > c:
+    max = a
+elif b > a and b > c:
+    max = b
 else:
-    max=c
+    max = c
 
 print(max)
-
-

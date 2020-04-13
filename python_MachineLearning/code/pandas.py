@@ -1,7 +1,7 @@
 import pandas as pd
+
 titanic_df = pd.read_csv('./python_MachineLearning/dataset/titanic/titanic_train.csv')
 # %%
-
 print(titanic_df.head())
 print(type(titanic_df))
 
@@ -50,7 +50,7 @@ print(titanic_df[titanic_df['Pclass'] == 3].head())
 
 # %%
 # titanic_sorted = titanic_df.sort_values(by=['Name'])
-titanic_sorted = titanic_df.sort_values(by=['Pclass', 'Name'], ascending=False )
+titanic_sorted = titanic_df.sort_values(by=['Pclass', 'Name'], ascending=False)
 
 print(titanic_sorted)
 
@@ -58,4 +58,3 @@ print(titanic_sorted)
 titanic_df['Age'].fillna(titanic_df['Age'].mean(), inplace=True)
 titanic_df['Embarked'].fillna('S', inplace=True)
 print(titanic_df.isna().sum())
-
