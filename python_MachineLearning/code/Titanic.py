@@ -124,6 +124,7 @@ def transform_feature(df):
 
 
 # %%
+titanic_df = pd.read_csv('./python_MachineLearning/dataset/titanic/titanic_train.csv')
 y_titanic_df = titanic_df['Survived']
 x_titanic_df = titanic_df.drop('Survived', axis=1)
 x_titanic_df = transform_feature(x_titanic_df)
