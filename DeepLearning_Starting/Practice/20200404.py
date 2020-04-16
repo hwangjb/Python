@@ -1,7 +1,6 @@
 # %%
 import pandas as pd
-train = pd.read_csv('C:/Users/user/Desktop/(1.학습)KISA-challenge2019-Network_trainset/(공격샘플)03.Brute_Force_attack_sample.csv')
+train = pd.read_csv('C:/Users/user/Desktop/Dataset/(1.학습)KISA-challenge2019-Network_trainset/(분할파일)network_train_set1_분할/network_train_set1_00000.csv')
+# %%
 print(train.shape)
-print(train.columns)
-print(train['tcp.srcport'])
-
+print(train.isnull().sum())

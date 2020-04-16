@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 
 
+# 정확도
 # %%
 class MyDummyClassifier(BaseEstimator):
     def fit(self, x, y=None):
@@ -69,3 +70,45 @@ fakeclf.fit(x_train, y_train)
 fakepred = fakeclf.predict(x_test)
 
 print('모든 예측을 0으로 하여도 정확도는 : {0:.3f}'.format(accuracy_score(y_test, fakepred)))
+
+# 오차 행렬
+# %%
+
+from sklearn.metrics import confusion_matrix
+
+print(confusion_matrix(y_test, fakepred))
+
+# 정밀도와 재현율
+# %%
+
+from sklearn.metrics import accuracy_score, precision_score, recall_score, confusion_matrix
+
+
+def get_clf_eval(y_test, pred):
+    confusion = confusion_matrix(y_test, pred)
+    accuracy = accuracy_score(y_test, pred)
+    precision = precision_score(y_test, pred)
+    recall = recall_score(y_test, pred)
+
+    print('오차 행렬')
+    print(confusion)
+    print('정확도 : {0:.4f}, 정밀도 : {1:.4f}, 재현율 : {2:.4f}'.format(accuracy, precision, recall))
+
+
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+
+titanic_df = pd.read_csv('./python_MachineLearning/dataset/titanic/titanic_train.csv')
+y_titanic_df = titanic_df['Survived']
+x_titanic_df = titanic_df.drop('Survived', axis=1)
+x_titanic_df = transform_feature(x_titanic_df)
+
+x_train, x_test, y_train, y_test = train_test_split(x_titanic_df, y_titanic_df, test_size=0.20, random_state=11)
+
+lr_clf = LogisticRegression()
+lr_clf.fit(x_train, y_train)
+pred = lr_clf.predict(x_test)
+get_clf_eval(y_test, pred)
+
+# %%
